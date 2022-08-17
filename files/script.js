@@ -4,6 +4,7 @@ let intentos = 0;
 let palabraTachada = [];
 
 
+
 // Palabra que pido de una api , no se si esta bien
 let word;
 
@@ -20,7 +21,7 @@ fetch('https://palabras-aleatorias-public-api.herokuapp.com/random')
     wordOculta();
     console.log(palabraTachada);
     document.getElementById("palabra").innerHTML = `${(arrayAstring())}`;
-    document.getElementById("intentos").innerHTML = `${intentos}`;
+    document.getElementById("intentos").innerHTML = `INTENTOS:  ${intentos}`;
   });
 
 //Funcion "ocultar word"    
@@ -53,7 +54,9 @@ function destapar(evento) {
     document.getElementById("intentos").innerHTML = `${intentos}`;
   } else {
     intentos++;
-    document.getElementById("intentos").innerHTML = `${intentos}`;
+  
+
+    document.getElementById("intentos").innerHTML = `INTENTOS FALLIDOS : ${intentos}`;
     console.log(intentos);
     switch(intentos){
       case 1:
