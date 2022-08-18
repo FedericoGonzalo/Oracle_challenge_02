@@ -1,35 +1,49 @@
-body{
+
+body {
     background-image: radial-gradient(circle at 102.48% 54.59%, #d2df3e 0, #c5be2d 16.67%, #b09b1f 33.33%, #937612 50%, #745408 66.67%, #583802 83.33%, #402200 100%);
-height: 100%;
+  
 }
-header{
-    height: 20%;
-   border-bottom-right-radius:10% ;
-   border-bottom-left-radius:10% ;
-   box-shadow: 10px 5px 5px black;
+
+header {
+    height: 10%;
+    border-bottom-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+    box-shadow: 10px 5px 5px black;
     background-image: radial-gradient(circle at 9.14% 50%, #ffff98 0, #f3ed72 16.67%, #e6d448 33.33%, #d9b904 50%, #cc9e00 66.67%, #c18400 83.33%, #b96a00 100%);
-   margin-bottom: 0.5rem;
-   
+    margin-bottom: 0.5rem;
+
 }
-h1{  font-family: 'Rubik Iso', cursive; 
-    font-size:3rem;
+
+h1 {
+    font-family: 'Rubik Iso', cursive;
+    font-size: 3rem;
     padding-bottom: 0.5rem;
     text-align: center;
     margin-top: -3rem;
 }
-#sol{
-    width:5rem;
+
+#sol {
+    width: 5rem;
     height: 5rem;
     border-radius: 100%;
     background-image: radial-gradient(circle at 12.5% 12.5%, #ff9726 0, #ff8721 16.67%, #fa7219 33.33%, #f0580f 50%, #e53909 66.67%, #dd0b0c 83.33%, #d70013 100%);
 }
- 
-  #frame{
-   display: block;
-    height: 50%;
-
-    margin:auto;
+#fotos{
    
+    max-width: 100%;
+    padding-left: 25%;
+    padding-right: 25%;
+
+
+}
+
+#frame {
+   box-sizing: border-box;
+   padding: auto;
+    max-width: 100%;
+    max-height: 25rem;
+  
+
 
     border-top-right-radius: 10%;
     border-top-left-radius: 10%;
@@ -37,29 +51,25 @@ h1{  font-family: 'Rubik Iso', cursive;
     border-bottom-left-radius: 6%;
     box-shadow: 1rem 0.8rem 2rem black;
 
-     
-      
-    }
-   
-    #palabra, #intentos{
-        height: 15%;
-        font-family: 'Rubik Iso', cursive;  
-        font-size: 3rem;
+
+
+}
+
+#palabra,
+#intentos,
+#letrasFalladas {
+   max-height:30% ;
+    font-family: 'Rubik Iso', cursive;
+    font-size: 2rem;
     background-color: #c18400;
     margin-top: 1rem;
-   text-align: center;
-     
-   } 
+    text-align: center;
+
+}
 
 
-footer{
-        width:100%;
-        height: 15%;
-    }
-@media screen and(min-width:280px) and (max-width:600) {
-    
- 
-    
-   
+footer {
+    width: 100%;
   
 }
+

@@ -1,8 +1,10 @@
+
+
 //candtidad de oportunidades
 const oportunidades = 6;
 let intentos = 0;
 let palabraTachada = [];
-
+let letrasFalladas=[];
 
 
 // Palabra que pido de una api , no se si esta bien
@@ -11,19 +13,21 @@ let word;
 fetch('https://palabras-aleatorias-public-api.herokuapp.com/random')
   .then(response => response.json())
   .then(data => {
-    console.log(data.body.Word);
+  //  console.log(data.body.Word);
     word = data.body.Word;
     if (word.includes("á") || word.includes("é") || word.includes("í") || word.includes("ó") || word.includes("ú")) {
-      console.log("tiene acento " + word);
+   //   console.log("tiene acento " + word);
       location.reload();
     };
-    console.log("Desp del if " + word);
+  //  console.log("Desp del if " + word);
     wordOculta();
-    console.log(palabraTachada);
+   
+ //   console.log(palabraTachada);
     document.getElementById("palabra").innerHTML = `${(arrayAstring())}`;
     document.getElementById("intentos").innerHTML = `INTENTOS:  ${intentos}`;
+ 
   });
-
+ alert("Este el Ahorcado Spaguetti Western, presiona solo  letras,tenes 6 intentos,una vez finalizado empieza otra vez.");
 //Funcion "ocultar word"    
 function wordOculta() {
   for (var z = 0; z < word.length; z++) {
@@ -36,11 +40,14 @@ function wordOculta() {
 }
 //funcion tocar tecla con "input" a lowerCase
 function destapar(evento) {
-  console.log("presion " + evento.key)
-  let tecla = evento.key.toString().toLowerCase();
+let filtroTelclado=evento.key.toString().toLowerCase();
 
-  console.log(typeof (tecla));
-  console.log("variable tecla: " + tecla);
+  // console.log("presion " + evento.key)
+ 
+ let tecla = evento.key.toString().toLowerCase();
+
+ // console.log(typeof (tecla));
+ // console.log("variable tecla: " + tecla);
  //si tecla esta en string word
   if (word.includes(tecla)) {
     for (var y = 0; y < word.length; y++) {
@@ -49,15 +56,16 @@ function destapar(evento) {
       }
 
     }
-    console.log(palabraTachada);
+  //  console.log(palabraTachada);
     document.getElementById("palabra").innerHTML = `${(arrayAstring())}`;
-    document.getElementById("intentos").innerHTML = `${intentos}`;
-  } else {
+    document.getElementById("intentos").innerHTML =`INTENTOS:  ${intentos}`;
+  } else {if(letrasFalladas.includes(tecla)==false){
     intentos++;
-  
-
-    document.getElementById("intentos").innerHTML = `INTENTOS FALLIDOS : ${intentos}`;
-    console.log(intentos);
+    letrasFalladas.push(tecla);
+   document.getElementById("letrasFalladas").innerHTML = `LETRAS FALLIDAS : ${letrasFalladas}`;
+   document.getElementById("intentos").innerHTML =`INTENTOS:  ${intentos}`;
+  }
+ //   console.log(intentos);
     switch(intentos){
       case 1:
         document.getElementById("frame").src = "media/1.jpg"; 
@@ -81,13 +89,16 @@ function destapar(evento) {
     }
   };
 
-  console.log(arrayAstring());
+ // console.log(arrayAstring());
   //si pierde
   if (intentos == oportunidades) {
-    alert("perdiste la palabra era : "+word);
+   // alert("perdiste la palabra era : "+word);
+    document.getElementById("palabra").innerHTML = `GAME OVER GAME OVER GAME OVER`;
+    document.getElementById("intentos").innerHTML =`LA RESPUESTA CORRECTA ERA "${word.toUpperCase()}"`;
+
     setTimeout(() => {
       document.getElementById("frame").src = "media/gameOver.jpg"; 
-    }, 2000);
+    }, 3000);
     setTimeout(() => {
       location.reload();
     }, 6000);
@@ -97,7 +108,10 @@ function destapar(evento) {
   //si gana
   if (arrayAstring() == word) {
     
-    alert("ganaste");
+  //  alert("ganaste");
+  document.getElementById("palabra").innerHTML = `ACERTASTE "${word.toUpperCase()}", sos todo un cowboy!!`;
+  document.getElementById("intentos").innerHTML =`GAME OVER GAME OVER GAME OVER`;
+
     setTimeout(() => {
       document.getElementById("frame").src = "media/winner.jpg"; 
     }, 2000);
@@ -119,7 +133,10 @@ function arrayAstring() {
   }
   return resultado
 }
-window.addEventListener("keypress", destapar);
+if(intentos<6){
+  window.addEventListener("keypress", destapar);
+}else{ window.addEventListener()};
+
 
 
 
