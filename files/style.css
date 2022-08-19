@@ -57,19 +57,37 @@ h1 {
 
 #palabra,
 #intentos,
-#letrasFalladas {
+#letrasFalladas{
    max-height:30% ;
     font-family: 'Rubik Iso', cursive;
     font-size: 2rem;
     background-color: #c18400;
     margin-top: 1rem;
     text-align: center;
-
+    
 }
 
+ 
 
+ 
 footer {
+    max-height:10% ;
+    font-family: 'Rubik Iso', cursive;
+    font-size: 0.7rem;
+    background-color: #c18400;
+    margin-top: 1rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    text-align: center;
     width: 100%;
-  
+    
+     box-shadow:10px 5px 5px black; ;
+     
+     color: black;
 }
 
+ footer  a{
+    text-decoration: none;
+    color: black;
+}
+   
